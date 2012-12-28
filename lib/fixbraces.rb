@@ -1,5 +1,8 @@
 require "fixbraces/version"
 
 module Fixbraces
-  # Your code goes here...
+  def Fixbraces.fixbraces(text)
+    # Move the opening brace to the same line as the opening clause
+    text.gsub(/\n[ \t]*\{[ \t]*$/, " {")
+  end
 end
