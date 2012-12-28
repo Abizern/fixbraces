@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require "fixbraces"
+require "trollop"
+
+opts = Trollop::options do
+  version "v#{Fixbraces::VERSION}"
+
+  banner <<BANN
+Puts the opening brace on the same line as the opening clause for Objective-C (.h and .m) files.
+
+Usage:
+  fixbraces [options] files ...
+
+where [options] are:
+BANN
+
+end
