@@ -6,6 +6,7 @@ Feature: The binary interface for fixbraces works
     Given a single source file called MasterViewController.m
     When I run `fixbraces MasterViewController.m`
     Then MasterViewController.m should be formatted correctly
+    Then the output should contain "MasterViewController.m"
     And the exit status should be 0
 
   Scenario: Run the app on a directory
@@ -18,5 +19,7 @@ Feature: The binary interface for fixbraces works
     Given an Xcode project
     When I run `"fixbraces FixbracesTestProject/*.m"`
     Then the .m files in that directory are changed
+    And the changed files should be listed
+    And there should not be any .h files listed
     And the .h files in that directory are unchanged
     And the exit status should be 0

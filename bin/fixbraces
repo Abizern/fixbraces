@@ -2,6 +2,7 @@
 
 require "fixbraces"
 require "trollop"
+require "pathname"
 
 opts = Trollop::options do
   version "v#{Fixbraces::VERSION}"
@@ -32,5 +33,11 @@ ARGV.each do |f|
 end
 
 source_files.flatten.each do |f|
-  Fixbraces.process_file f
+  changed_file = Fixbraces.process_file f
+
+  if changed_file
+    path_name = Pathname.new changed_file
+    relative_path_name = path_name.relative_path_from Pathname.pwd
+    puts "Corrected: #{relative_path_name}"
+  end
 end

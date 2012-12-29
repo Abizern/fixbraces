@@ -38,6 +38,17 @@ Then /^the \.m files in that directory are changed$/ do
   expect(result).to eq ""
 end
 
+Then /^the changed files should be listed$/ do
+  step %(the output should contain "AppDelegate.m")
+  step %(the output should contain "DetailViewController.m")
+  step %(the output should contain "MasterViewController.m")
+  step %(the output should contain "main.m")
+end
+
+Then /^there should not be any .h files listed$/ do
+  step %(the output should not contain "AppDelegate.h")
+end
+
 Then /^the \.h files in that directory are unchanged$/ do
   base_dir = File.join @working_dir, "FixbracesTestProject"
   # We're looking fore unchanged files, so comparing them against the input not expected
