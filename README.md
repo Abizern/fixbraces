@@ -43,6 +43,14 @@ or a number of files:
 
 Run `fixbraces --help` for details.
 
+## Disclaimer
+
+I have tests, you can see them for yourself. The script works, but I'm
+aggressive about using version control, so if anything did get messed up I'm
+not left in an unrecoverable state.
+
+I suggest you do the same.
+
 ## Contributing
 
 1. Fork it
