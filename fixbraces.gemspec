@@ -14,7 +14,7 @@ Xcode, and people I collaborate with are inconsistent about the placement
 of the opening brace. This corrects it for a file or a directory.
 DESC
   gem.summary       = "Puts the opening brace on the same line"
-  gem.homepage      = "https://github.com/abizern/fixbraces"
+  gem.homepage      = "http://abizern.org/fixbraces/"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
