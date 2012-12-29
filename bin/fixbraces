@@ -17,6 +17,20 @@ BANN
 
 end
 
+source_files = []
+
 ARGV.each do |f|
-  Fixbraces.process_file File.expand_path f
+  f = File.expand_path f
+  extension = File.extname f
+
+  if File.directory? f
+    source_files.push Dir.glob File.join(f, "**/*.{h,m}")
+  elsif File.file? f and (extension == ".h" or extension == ".m")
+    source_files.push f
+  end
+
+end
+
+source_files.flatten.each do |f|
+  Fixbraces.process_file f
 end

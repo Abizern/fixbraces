@@ -9,7 +9,7 @@
 @interface DetailViewController : UIViewController
 {
     NSString *_unusedStringIVar;
-    NSArray *_unuasedArrayIVar;
+    NSArray *_unuasedArrayIVar;
 }
 
 @property (strong, nonatomic) id detailItem;
