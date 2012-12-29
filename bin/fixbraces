@@ -16,3 +16,7 @@ where [options] are:
 BANN
 
 end
+
+ARGV.each do |f|
+  Fixbraces.process_file File.expand_path f
+end

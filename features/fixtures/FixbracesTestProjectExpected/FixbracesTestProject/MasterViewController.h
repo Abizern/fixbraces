@@ -1,0 +1,11 @@
+//
+//  MasterViewController.h
+//  FixbracesTestProject
+//
+//
+
+#import <UIKit/UIKit.h>
+
+@interface MasterViewController : UITableViewController {}
+
+@end

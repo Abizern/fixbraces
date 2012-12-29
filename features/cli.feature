@@ -9,5 +9,5 @@ Feature: Help screens
 
   Scenario: Help display
     When I run `fixbraces -h`
-    And usage information should be displayed
+    Then usage information should be displayed
     And the exit status should be 0
