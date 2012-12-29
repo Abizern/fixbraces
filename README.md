@@ -9,7 +9,7 @@ on the next line. I prefer it to be on the opening line.
 
 ## Installation
 
-### Eventually from rubygems
+### From Rubygems
 
     $ gem install fixbraces
 
@@ -24,6 +24,22 @@ Clone the repository and then build and install it:
 Once it is installed, you can run it from the command line. Either pass it the
 current directory ('.') or a path to a directory that contains source
 file. Alternatively, pass it a list of files.
+
+You can pass it a directory:
+
+    fixbraces aDirectory
+
+or even use '.' for the current directory:
+
+    fixbraces .
+
+Apply it ot a single file:
+
+    fixbraces aDirectory/SourceFile.m
+
+or a number of files:
+
+    fixbraces aDirectory/*.m
 
 Run `fixbraces --help` for details.
 
