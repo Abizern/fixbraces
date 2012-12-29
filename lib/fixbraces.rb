@@ -3,23 +3,41 @@ require "tempfile"
 
 module Fixbraces
   def Fixbraces.fixbraces(text)
+    text_changed = false
+
     # Move the opening brace to the same line as the opening clause
-    partial_result = text.gsub(/\n[ \t]*\{[ \t]*$/, " {")
+    if text.gsub!(/\n[ \t]*\{[ \t]*$/, " {")
+      text_changed = true
+    end
 
     # If there are a pair of braces on their own line move them both up to the
     # same line as the opening line
-    partial_result.gsub(/\n[\s]*\{\}[\s]*$/, " {}")
+    if text.gsub!(/\n[\s]*\{\}[\s]*$/, " {}")
+      text_changed = true
+    end
+
+    text_changed ? text : nil
   end
 
   def Fixbraces.process_file(file)
-    temp_file = Tempfile.new "fixbraces"
+    corrected_text = ""
+
+    # Read in the text and pass it to the method that corrects it.
     File.open(file, "r") do |f|
       contents = f.read
-      new_contents = fixbraces contents
-      temp_file.write new_contents
+      corrected_text = fixbraces contents
     end
-    temp_file.close
-    FileUtils.cp temp_file.path, file
-    temp_file.unlink
+
+    if corrected_text
+      # Write the text to a temp file before overwriting the original file.
+      temp_file = Tempfile.new "fixbraces"
+      temp_file.write corrected_text
+      temp_file.close
+
+      FileUtils.cp temp_file.path, file
+    end
+
+    # Return the file path or nil if no changes were made
+    corrected_text ? file : nil
   end
 end

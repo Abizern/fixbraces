@@ -27,8 +27,8 @@ describe Fixbraces do
     end
 
     it "doesn't change text that is correctly formatted" do
-      expect(Fixbraces.fixbraces corrected_split_braces).to eq corrected_split_braces
-      expect(Fixbraces.fixbraces corrected_paired_braces).to eq corrected_paired_braces
+      expect(Fixbraces.fixbraces corrected_split_braces).to be_nil
+      expect(Fixbraces.fixbraces corrected_paired_braces).to be_nil
     end
   end
 
