@@ -62,6 +62,17 @@ describe Fixbraces do
       result = `diff -r --brief #{Dir.pwd + "/tmp/spec/"} #{Dir.pwd + "/spec/fixtures/expected/"}`
       expect(result).to eq ""
     end
+
+    it 'should preserve the original file mode' do
+      files = Dir.glob Dir.pwd + "/tmp/spec/*.{h,m}"
+      files.each do |f|
+        original_mode = File.new(f).stat.mode
+        Fixbraces.process_file f
+        new_mode = File.new(f).stat.mode
+
+        expect(new_mode).to eq original_mode
+      end
+    end
   end
 
 end
