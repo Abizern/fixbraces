@@ -21,8 +21,8 @@ DESC
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-  gem.add_dependency "trollop"
-  gem.add_development_dependency "rspec"
-  gem.add_development_dependency "cucumber"
-  gem.add_development_dependency "aruba"
+  gem.add_dependency "trollop" , "~> 2.0"
+  gem.add_development_dependency "rspec", "~> 2.12"
+  gem.add_development_dependency "cucumber", "~> 1.2"
+  gem.add_development_dependency "aruba", "~> 0.5"
 end
