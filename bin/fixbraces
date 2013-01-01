@@ -20,10 +20,18 @@ end
 
 source_files = []
 
+# Bail if no path of file is given
 Trollop::die "fixbraces needs to know what directory or files to attempt to correct" if ARGV.length < 1
 
-ARGV.each do |f|
-  f = File.expand_path f
+ARGV.each do |path|
+  f = File.expand_path path
+
+  # Skip this file or dir if it doesn't exist
+  unless File.exist? f
+    puts "Invalid path #{path}"
+    next
+  end
+
   extension = File.extname f
 
   if File.directory? f
