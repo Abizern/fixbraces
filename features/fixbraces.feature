@@ -23,3 +23,9 @@ Feature: The binary interface for fixbraces works
     And there should not be any .h files listed
     And the .h files in that directory are unchanged
     And the exit status should be 0
+
+  Scenario: Show an error message if no file or directory is provided
+    Given an Xcode project
+    When I run `fixbraces`
+    Then the output should contain "Error: fixbraces needs to know what directory or files to attempt to correct."
+    And the exit status should not be 0

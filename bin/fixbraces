@@ -20,6 +20,8 @@ end
 
 source_files = []
 
+Trollop::die "fixbraces needs to know what directory or files to attempt to correct" if ARGV.length < 1
+
 ARGV.each do |f|
   f = File.expand_path f
   extension = File.extname f
