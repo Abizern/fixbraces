@@ -43,6 +43,10 @@ or a number of files:
 
 Run `fixbraces --help` for details.
 
+## Changelog
+
+See the current version of the [Changelog](https://github.com/Abizern/fixbraces/blob/master/CHANGELOG.md) is part of the repository.
+
 ## Disclaimer
 
 I have tests, you can see them for yourself. The script works, but I'm
