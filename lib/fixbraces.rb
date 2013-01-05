@@ -40,4 +40,16 @@ module Fixbraces
     # Return the file path or nil if no changes were made
     corrected_text ? file : nil
   end
+
+  def Fixbraces.dry_process_file(file)
+    corrected_text = ""
+
+    # Read in the text and pass it to the method that corrects it.
+    File.open(file, "r") do |f|
+      contents = f.read
+      corrected_text = fixbraces contents
+    end
+
+    corrected_text ? file : nil
+  end
 end

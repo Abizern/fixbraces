@@ -32,7 +32,8 @@ describe Fixbraces do
     end
   end
 
-  describe "#process_file" do
+  context "Working with files" do
+
     before(:each) do
       tests_dir = Dir.pwd + "/tmp/spec/"
 
@@ -53,26 +54,61 @@ describe Fixbraces do
       end
     end
 
-    it "manages to update multiple files" do
-      files = Dir.glob Dir.pwd + "/tmp/spec/*.{h,m}"
-      files.each do |f|
-        Fixbraces.process_file f
+    describe "#process_file" do
+
+      it "manages to update multiple files" do
+        files = Dir.glob Dir.pwd + "/tmp/spec/*.{h,m}"
+        files.each do |f|
+          Fixbraces.process_file f
+        end
+
+        result = `diff -r --brief #{Dir.pwd + "/tmp/spec/"} #{Dir.pwd + "/spec/fixtures/expected/"}`
+        expect(result).to eq ""
       end
 
-      result = `diff -r --brief #{Dir.pwd + "/tmp/spec/"} #{Dir.pwd + "/spec/fixtures/expected/"}`
-      expect(result).to eq ""
-    end
+      it 'should preserve the original file mode' do
+        files = Dir.glob Dir.pwd + "/tmp/spec/*.{h,m}"
+        files.each do |f|
+          original_mode = File.new(f).stat.mode
+          Fixbraces.process_file f
+          new_mode = File.new(f).stat.mode
 
-    it 'should preserve the original file mode' do
-      files = Dir.glob Dir.pwd + "/tmp/spec/*.{h,m}"
-      files.each do |f|
-        original_mode = File.new(f).stat.mode
-        Fixbraces.process_file f
-        new_mode = File.new(f).stat.mode
-
-        expect(new_mode).to eq original_mode
+          expect(new_mode).to eq original_mode
+        end
       end
     end
+
+    describe "#dry_process_file" do
+      it "returns the names of the files if changes could be applied" do
+        files = Dir.glob Dir.pwd + "/tmp/spec/*.{h,m}"
+
+        processed_files = Set.new
+        files.each do |f|
+          processed_file = Fixbraces.dry_process_file f
+          unless processed_file
+            next
+          end
+          processed_files.add (File.basename processed_file)
+        end
+
+        expected_processed_files = ["MasterViewController.h", "AppDelegate.m", "MasterViewController.m"].to_set
+
+        expect(processed_files).to eq expected_processed_files
+      end
+
+      it 'should not change the contents of the files' do
+        files = Dir.glob Dir.pwd + "/tmp/spec/*.{h,m}"
+        files.each do |f|
+          Fixbraces.dry_process_file f
+        end
+
+        result = `diff -r --brief #{Dir.pwd + "/tmp/spec/"} #{Dir.pwd + "/spec/fixtures/input/"}`
+        expect(result).to eq ""
+      end
+
+    end
+
   end
+
 
 end
