@@ -41,11 +41,30 @@ or a number of files:
 
     fixbraces aDirectory/*.m
 
+If you just want to see what files _would_ be changed, then use the `--dry-run`,
+or `-d` option:
+
+    fixbraces -d .
+
 Run `fixbraces --help` for details.
 
-## Changelog
+## Fixbraces Changelog
 
-See the current version of the [Changelog](https://github.com/Abizern/fixbraces/blob/master/CHANGELOG.md) is part of the repository.
+### 1.3.0
+
+- Add the `--dry-run, -d` option to list the files that would change, but make
+  no actual corrections.
+
+### 1.2.0
+- Error and exit if no file or directory is passed to the script
+- Print a message and gracefully handle non-existent path or directory
+
+### 1.0.0
+- List the changed files.
+
+### 0.9.0
+
+- Initial version.
 
 ## Disclaimer
 
