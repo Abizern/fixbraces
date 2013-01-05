@@ -16,6 +16,7 @@ Usage:
 where [options] are:
 BANN
 
+  opt :dry_run, "Do not change any files, but list the names of those that would be changed."
 end
 
 source_files = []
@@ -23,6 +24,7 @@ source_files = []
 # Bail if no path of file is given
 Trollop::die "fixbraces needs to know what directory or files to attempt to correct" if ARGV.length < 1
 
+# Sort out the files that need to be processed
 ARGV.each do |path|
   f = File.expand_path path
 
@@ -43,11 +45,20 @@ ARGV.each do |path|
 end
 
 source_files.flatten.each do |f|
-  changed_file = Fixbraces.process_file f
+  changed_file = ""
+  output_prefix = ""
+
+  if opts[:dry_run]
+    changed_file = Fixbraces.dry_process_file f
+    output_prefix = "Will Correct:"
+  else
+    changed_file = Fixbraces.process_file f
+    output_prefix = "Corrected:"
+  end
 
   if changed_file
     path_name = Pathname.new changed_file
     relative_path_name = path_name.relative_path_from Pathname.pwd
-    puts "Corrected: #{relative_path_name}"
+    puts "#{output_prefix} #{relative_path_name}"
   end
 end

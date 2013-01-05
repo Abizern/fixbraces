@@ -10,6 +10,12 @@ Then /^MasterViewController\.m should be formatted correctly$/ do
   expect(FileUtils.compare_file @result_file, @expected_file).to eq true
 end
 
+Then /^MasterViewController\.m should not be formatted correctly$/ do
+  @expected_file = @fixtures_input_dir + "FixbracesTestProject/MasterViewController.m"
+  @result_file = @working_dir + "MasterViewController.m"
+  expect(FileUtils.compare_file @result_file, @expected_file).to eq true
+end
+
 Given /^an Xcode project$/ do
   FileUtils.mkdir_p @working_dir
   FileUtils.cp_r @fixtures_input_dir + "FixbracesTestProject", @working_dir
@@ -19,6 +25,11 @@ end
 
 Then /^the files in the directory should be formatted correctly$/ do
   result = `diff -r --brief --exclude=.DS_Store #{@working_dir} #{@fixtures_expected_dir}`
+  expect(result).to eq ""
+end
+
+Then /^the files in the directory should be unchanged$/ do
+  result = `diff -r --brief --exclude=.DS_Store #{@working_dir} #{@fixtures_input_dir}`
   expect(result).to eq ""
 end
 
@@ -43,6 +54,10 @@ Then /^the changed files should be listed$/ do
   step %(the output should contain "DetailViewController.m")
   step %(the output should contain "MasterViewController.m")
   step %(the output should contain "main.m")
+end
+
+When /^the suggested changed files should be listed$/ do
+  step %(the changed files should be listed)
 end
 
 Then /^there should not be any .h files listed$/ do
