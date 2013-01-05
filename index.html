@@ -79,13 +79,35 @@ file. Alternatively, pass it a list of files.</p>
 <pre><code>fixbraces aDirectory/*.m
 </code></pre>
 
+<p>If you just want to see what files <em>would</em> be changed, then use the <code>--dry-run</code>,
+or <code>-d</code> option:</p>
+
+<pre><code>fixbraces -d .
+</code></pre>
+
 <p>Run <code>fixbraces --help</code> for details.</p>
 
-<h2>Changelog</h2>
+<h2>Fixbraces Changelog</h2>
 
-<p>See the current version of the <a href="https://github.com/Abizern/fixbraces/blob/master/CHANGELOG.md">Changelog</a> is part of the repository.</p>
+<h3>1.3.0</h3>
 
-<h2>Disclaimer</h2>
+<ul>
+<li>Add the <code>--dry-run, -d</code> option to list the files that would change, but make
+no actual corrections.</li>
+</ul><h3>1.2.0</h3>
+
+<ul>
+<li>Error and exit if no file or directory is passed to the script</li>
+<li>Print a message and gracefully handle non-existent path or directory</li>
+</ul><h3>1.0.0</h3>
+
+<ul>
+<li>List the changed files.</li>
+</ul><h3>0.9.0</h3>
+
+<ul>
+<li>Initial version.</li>
+</ul><h2>Disclaimer</h2>
 
 <p>I have tests, you can see them for yourself. The script works, but I'm
 aggressive about using version control, so if anything did get messed up I'm
