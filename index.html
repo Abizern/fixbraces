@@ -1,43 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Fixbraces by Abizern</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Fixbraces : Make sure that the opening brace for an Objective-C code block is on the same line." />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Fixbraces</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1 class="header">Fixbraces</h1>
-        <p class="header">Make sure that the opening brace for an Objective-C code block is on the same line.</p>
 
-        <ul>
-          <li class="download"><a class="buttons" href="https://github.com/Abizern/fixbraces/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/Abizern/fixbraces/tarball/master">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/Abizern/fixbraces">View On GitHub</a></li>
-        </ul>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Abizern/fixbraces">View on GitHub</a>
 
-        <p class="header">This project is maintained by <a class="header name" href="https://github.com/Abizern">Abizern</a></p>
+          <h1 id="project_title">Fixbraces</h1>
+          <h2 id="project_tagline">Make sure that the opening brace for an Objective-C code block is on the same line.</h2>
 
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Abizern/fixbraces/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Abizern/fixbraces/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-      </header>
-      <section>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h1>Fixbraces</h1>
 
-<p>Make sure that the opening brace for an Objective-C code block is on the same
-line.</p>
+<p>A command line app that puts the opening brace for an Objective-C code block on
+the same line as the opening clause.</p>
 
 <p>Xcode is inconsistent about the placement of braces for code that it inserts for
 us. Sometimes it puts the opening braces on the same line, sometimes it puts it
-on the next line. I prefer it to be on the opening line.</p>
+on the next line. I prefer it to be on the opening line. This command line app
+makes it easy to change selected source files, or all the files in a folder, or
+even run with the dry-run option to see what files would be changed.</p>
 
 <h2>Installation</h2>
 
@@ -127,12 +130,17 @@ not left in an unrecoverable state.</p>
 
 <p>Standard MIT license. Knock yourself out.</p>
       </section>
-      <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Fixbraces maintained by <a href="https://github.com/Abizern">Abizern</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		          <script type="text/javascript">
+
+              <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -142,6 +150,7 @@ not left in an unrecoverable state.</p>
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
+
 
   </body>
 </html>
