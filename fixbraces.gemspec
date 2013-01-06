@@ -9,11 +9,16 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Abizer Nasir"]
   gem.email         = ["abizern@junglecandy.com"]
   gem.description   = <<DESC
-I prefer my opening braces to be on the same line as the opening clause.
-Xcode, and people I collaborate with are inconsistent about the placement
-of the opening brace. This corrects it for a file or a directory.
+Xcode is inconsistent about the placement of braces for code that it inserts for
+us. Sometimes it puts the opening braces on the same line, sometimes it puts it
+on the next line. I prefer it to be on the opening line. This command line app
+makes it easy to change selected source files, or all the files in a folder, or
+even run with the dry-run option to see what files would be changed.
 DESC
-  gem.summary       = "Puts the opening brace on the same line"
+  gem.summary       = <<SUMM
+A command line app that puts the opening brace for an Objective-C code block on
+the same line as the opening clause.
+SUMM
   gem.homepage      = "http://abizern.org/fixbraces/"
 
   gem.files         = `git ls-files`.split($/)

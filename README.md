@@ -1,11 +1,13 @@
 # Fixbraces
 
-Make sure that the opening brace for an Objective-C code block is on the same
-line.
+A command line app that puts the opening brace for an Objective-C code block on
+the same line as the opening clause.
 
 Xcode is inconsistent about the placement of braces for code that it inserts for
 us. Sometimes it puts the opening braces on the same line, sometimes it puts it
-on the next line. I prefer it to be on the opening line.
+on the next line. I prefer it to be on the opening line. This command line app
+makes it easy to change selected source files, or all the files in a folder, or
+even run with the dry-run option to see what files would be changed.
 
 ## Installation
 
