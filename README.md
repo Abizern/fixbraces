@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/abizern/fixbraces.png)](https://travis-ci.org/abizern/fixbraces)
+
 # Fixbraces
 
 A command line app that puts the opening brace for an Objective-C code block on
