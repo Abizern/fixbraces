@@ -11,13 +11,13 @@ Feature: The script correctly makes changes to files
 
   Scenario: Run the app on a directory
     Given an Xcode project
-    When I run `"fixbraces ."`
+    When I run `fixbraces .`
     Then the files in the directory should be formatted correctly
     And the exit status should be 0
 
   Scenario: Run the app on a number of files in the directory
     Given an Xcode project
-    When I run `"fixbraces FixbracesTestProject/*.m"`
+    When I run `fixbraces FixbracesTestProject/AppDelegate.m FixbracesTestProject/DetailViewController.m Fixbraces/MasterViewController.m FixbracesTestProject/main.m`
     Then the .m files in that directory are changed
     And the changed files should be listed
     And there should not be any .h files listed

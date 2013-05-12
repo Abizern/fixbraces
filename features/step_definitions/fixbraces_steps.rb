@@ -43,10 +43,10 @@ Then /^the \.m files in that directory are changed$/ do
   files.each do |f|
     input = File.join base_dir, f
     expected = File.join base_expected_dir, f
-    result += `diff --brief #{input} #{expected}`
+    result += `diff --brief -r #{input} #{expected}`
   end
 
-  expect(result).to eq ""
+  expect(result).not_to eq ""
 end
 
 Then /^the changed files should be listed$/ do

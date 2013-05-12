@@ -11,13 +11,13 @@ Feature: The script correctly implements a dry run feature
 
   Scenario: Run the app on a directory
     Given an Xcode project
-    When I run `"fixbraces -d ."`
+    When I run `fixbraces -d .`
     Then the files in the directory should be unchanged
     And the exit status should be 0
 
   Scenario: Run the app on a number of files in the directory
     Given an Xcode project
-    When I run `"fixbraces -d FixbracesTestProject/*.m"`
+    When I run `fixbraces -d FixbracesTestProject/AppDelegate.m FixbracesTestProject/DetailViewController.m Fixbraces/MasterViewController.m FixbracesTestProject/main.m`
     And the suggested changed files should be listed
     And the files in the directory should be unchanged
     And the exit status should be 0
