@@ -33,19 +33,19 @@ file. Alternatively, pass it a list of files.
 
 You can pass it a directory:
 
-    fixbraces aDirectory
+    fixbraces someDirectory
 
 or even use '.' for the current directory:
 
     fixbraces .
 
-Apply it ot a single file:
+Apply it to a single file:
 
-    fixbraces aDirectory/SourceFile.m
+    fixbraces someDirectory/SourceFile.m
 
 or a number of files:
 
-    fixbraces aDirectory/*.m
+    fixbraces someDirectory/*.m
 
 If you just want to see what files _would_ be changed, then use the `--dry-run`,
 or `-d` option:
