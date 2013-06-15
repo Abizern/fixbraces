@@ -2,7 +2,7 @@ require "fixbraces/version"
 require "tempfile"
 
 module Fixbraces
-  def Fixbraces.fixbraces(text)
+  def self.fixbraces(text)
     text_changed = false
 
     # Move the opening brace to the same line as the opening clause
@@ -19,7 +19,7 @@ module Fixbraces
     text_changed ? text : nil
   end
 
-  def Fixbraces.process_file(file)
+  def self.process_file(file)
     corrected_text = ""
 
     # Read in the text and pass it to the method that corrects it.
@@ -41,7 +41,7 @@ module Fixbraces
     corrected_text ? file : nil
   end
 
-  def Fixbraces.dry_process_file(file)
+  def self.dry_process_file(file)
     corrected_text = ""
 
     # Read in the text and pass it to the method that corrects it.
